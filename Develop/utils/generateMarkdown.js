@@ -64,7 +64,7 @@ function renderLicenseLink(license) {
       break;
   }
 }
-return `https://img.shields.io/static/v1?label=license&message=${badge.name}&color=${badge.color})`;
+return `https://img.shields.io/static/v1?label=license&message=${"MIT"}&color=${"yellow"})`;
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
@@ -100,26 +100,24 @@ function renderLicenseSection(license) {
 }
 
 // TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
-  return `# ${data.title}
-  readme = f"# {title}\n\n"
-  readme += f"{description}\n\n"
-  readme += "## Table of Contents\n\n"
-  readme += "- [Installation](#installation)\n"
-  readme += "- [Usage](#usage)\n"
-  readme += "- [Contributors](#contributors)\n"
-  readme += "- [License](#license)\n\n"
-  readme += "## Installation\n\n"
-  readme += f"{installation}\n\n"
-  readme += "## Usage\n\n"
-  readme += f"{usage}\n\n"
-  readme += "## Contributors\n\n"
-  readme += f"{contributors}\n\n"
-  readme += "## License\n\n"
-  readme += f"This project is licensed under the {license} license.\n"
+function generateReadme(title, description, installation, usage, contributors, badge, license) {
+  let readme = `# ${title}\n\n`;
+  readme += `${description}\n\n`;
+  readme += '## Table of Contents\n\n';
+  readme += '- [Installation](#installation)\n';
+  readme += '- [Usage](#usage)\n';
+  readme += '- [Contributors](#contributors)\n';
+  readme += '- [License](#license)\n\n';
+  readme += '## Installation\n\n';
+  readme += `${installation}\n\n`;
+  readme += '## Usage\n\n';
+  readme += `${usage}\n\n`;
+  readme += '## Contributors\n\n';
+  readme += `${contributors}\n\n`;
+  readme += '## License\n\n';
+  readme += `This project is licensed under the [![License](${badge})](LICENSE)\n`;
 
-  return readme
-`;
+  return readme;
 }
 
 module.exports = generateMarkdown;
